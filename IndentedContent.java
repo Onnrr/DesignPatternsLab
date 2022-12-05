@@ -14,7 +14,7 @@ public class IndentedContent extends Decorator {
         String result = "";
         for (int i = 0; i < lines.length; i++) {
             
-            if (lines[i].startsWith("- DIRECTORY END") || lines[i].startsWith("(!)")) {
+            if (lines[i].trim().startsWith("- DIRECTORY END") || lines[i].startsWith("(!)")) {
                 currentIndent--;
                 for(int y = 0; y < currentIndent; y++) {
                     result += TAB;
@@ -22,7 +22,7 @@ public class IndentedContent extends Decorator {
                 result += lines[i];
                 result += "\n";
             }
-            else if (lines[i].startsWith("-") || lines[i].startsWith("(d)")) {
+            else if (lines[i].trim().startsWith("-") || lines[i].startsWith("(d)")) {
                 for(int y = 0; y < currentIndent; y++) {
                     result += TAB;
                 }
